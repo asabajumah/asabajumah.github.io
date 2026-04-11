@@ -47,6 +47,12 @@ button {
   margin-top:10px;
   border-radius:5px;
 }
+
+img {
+  width:100%;
+  margin-top:10px;
+  border-radius:8px;
+}
 </style>
 </head>
 
@@ -58,7 +64,8 @@ button {
 
 <input id="title" placeholder="Post Title">
 <textarea id="text" placeholder="Post Content"></textarea>
-<input id="link" placeholder="Read More Link (optional)">
+
+<input type="file" id="imageInput" accept="image/*">
 
 <button onclick="addPost()">Add Post</button>
 <button onclick="downloadJSON()">Download JSON</button>
@@ -71,29 +78,46 @@ button {
 <script>
 let posts = JSON.parse(localStorage.getItem("blogPosts")) || [];
 
+// Convert image to Base64
+function toBase64(file) {
+  return new Promise((resolve, reject) => {
+    let reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
+  });
+}
+
+async function addPost(){
+  let title = document.getElementById("title").value;
+  let text = document.getElementById("text").value;
+  let imageFile = document.getElementById("imageInput").files[0];
+
+  let imageData = "";
+  if(imageFile){
+    imageData = await toBase64(imageFile);
+  }
+
+  posts.unshift({title,text,image:imageData});
+
+  localStorage.setItem("blogPosts", JSON.stringify(posts));
+
+  renderPosts();
+}
+
 function renderPosts(){
   let box = document.getElementById("posts");
   box.innerHTML = "";
 
-  posts.forEach((p,i)=>{
+  posts.forEach(p=>{
     box.innerHTML += `
       <div class="post">
         <b>${p.title}</b><br>
         ${p.text}
+        ${p.image ? `<img src="${p.image}">` : ""}
       </div>
     `;
   });
-}
-
-function addPost(){
-  let title = document.getElementById("title").value;
-  let text = document.getElementById("text").value;
-  let link = document.getElementById("link").value;
-
-  posts.unshift({title,text,link});
-  localStorage.setItem("blogPosts", JSON.stringify(posts));
-
-  renderPosts();
 }
 
 function downloadJSON(){
