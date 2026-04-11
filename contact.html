@@ -7,22 +7,81 @@
 <title>Contact – Asaba Jumah</title>
 
 <style>
-body {margin:0;font-family:Arial;background:#020617;color:white;}
+
+/* BODY */
+body {
+  margin:0;
+  padding-top:70px;
+  font-family:Arial;
+  background:#020617;
+  color:white;
+}
 
 /* NAVBAR */
 .navbar {
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1000;
+
   display:flex;
   justify-content:space-between;
   align-items:center;
+
   padding:15px 20px;
   background:#020617;
   border-bottom:1px solid #1e293b;
 }
 
-.navbar a {
+.logo {
+  font-weight:bold;
+  font-size:18px;
+}
+
+/* NAV LINKS */
+.nav-links {
+  display:flex;
+}
+
+.nav-links a {
   color:white;
   text-decoration:none;
-  margin-left:15px;
+  margin-left:20px;
+}
+
+/* HAMBURGER */
+.menu-toggle {
+  display:none;
+  font-size:24px;
+  cursor:pointer;
+}
+
+/* MOBILE */
+@media (max-width:768px){
+
+  .menu-toggle {
+    display:block;
+  }
+
+  .nav-links {
+    display:none;
+    flex-direction:column;
+    width:100%;
+    position:absolute;
+    top:60px;
+    left:0;
+    background:#020617;
+    padding:10px 0;
+  }
+
+  .nav-links a {
+    margin:10px 0;
+    text-align:center;
+  }
+
+  .nav-links.active {
+    display:flex;
+  }
 }
 
 /* CONTENT */
@@ -50,6 +109,7 @@ footer {
   padding:20px;
   color:#94a3b8;
 }
+
 </style>
 
 </head>
@@ -58,11 +118,15 @@ footer {
 
 <!-- NAVBAR -->
 <div class="navbar">
-  <div><strong>Asaba Jumah</strong></div>
-  <div>
+  <div class="logo">Asaba Jumah</div>
+
+  <!-- ☰ -->
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+  <div class="nav-links" id="navLinks">
     <a href="/">Home</a>
-    <a href="/contact.html">Contact</a>
-    <a href="/films.html">Films</a>
+    <a href="/films">Films</a>
+    <a href="/contact">Contact</a>
   </div>
 </div>
 
@@ -73,7 +137,7 @@ footer {
 <p>Email for bookings:</p>
 <p>
 <a href="mailto:asabajumahfelix@gmail.com">
-asabajumah@gmail.com
+asabajumahfelix@gmail.com
 </a>
 </p>
 </div>
@@ -94,6 +158,13 @@ asabajumah@gmail.com
 <footer>
 © 2026 Asaba Jumah
 </footer>
+
+<!-- SCRIPT -->
+<script>
+function toggleMenu() {
+  document.getElementById("navLinks").classList.toggle("active");
+}
+</script>
 
 </body>
 </html>
