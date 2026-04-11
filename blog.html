@@ -111,6 +111,19 @@ body {
   line-height:1.5;
 }
 
+/* READ MORE */
+.readmore {
+  display:inline-block;
+  margin-top:10px;
+  color:#38bdf8;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.readmore:hover {
+  text-decoration:underline;
+}
+
 /* FOOTER */
 footer {
   text-align:center;
@@ -119,7 +132,7 @@ footer {
   margin-top:40px;
 }
 
-/* SOCIAL ICONS */
+/* SOCIAL */
 .section {
   margin-top:50px;
   text-align:center;
@@ -157,7 +170,7 @@ footer {
 <p>Latest updates, news & stories</p>
 </div>
 
-<!-- BLOG CONTENT -->
+<!-- BLOG -->
 <div class="container">
   <div id="blogContainer" class="grid"></div>
 </div>
@@ -170,18 +183,20 @@ fetch("blog-data.json")
   let container = document.getElementById("blogContainer");
   container.innerHTML = "";
 
-  data.forEach(post => {
+  data.forEach((post, index) => {
 
     container.innerHTML += `
       <div class="card">
 
-        ${post.image ? `
-        <img src="${post.image}" alt="Blog Image">
-        ` : ""}
+        ${post.image ? `<img src="${post.image}" alt="Blog Image">` : ""}
 
         <div class="card-content">
           <h3>${post.title}</h3>
-          <p>${post.text}</p>
+          <p>${post.text.substring(0,120)}...</p>
+
+          <a class="readmore" href="post.html?id=${index}">
+            Read More →
+          </a>
         </div>
 
       </div>
@@ -204,7 +219,6 @@ fetch("blog-data.json")
 <a href="https://www.imdb.com/name/nm18243050/"><i class="fab fa-imdb"></i></a>
 <a href="https://www.themoviedb.org/person/6077619-asaba-jumah"><i class="fas fa-film"></i></a>
 </div>
-
 </div>
 
 <footer>© 2026 Asaba Jumah</footer>
