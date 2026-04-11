@@ -9,14 +9,28 @@
 <meta name="description" content="Filmography of Asaba Jumah, Ugandan actor known for Wakaliwood and independent films.">
 
 <style>
-body {margin:0;font-family:Arial;background:#020617;color:white;}
+
+/* BODY FIX */
+body {
+  margin:0;
+  padding-top:70px;
+  font-family:Arial;
+  background:#020617;
+  color:white;
+}
 
 /* NAVBAR */
 .navbar {
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1000;
+
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:15px 20px;
+
+  padding:15px 30px;
   background:#020617;
   border-bottom:1px solid #1e293b;
 }
@@ -26,10 +40,18 @@ body {margin:0;font-family:Arial;background:#020617;color:white;}
   font-size:18px;
 }
 
+/* NAV LINKS FIX */
+.nav-links {
+  display:flex;
+  align-items:center;
+  white-space:nowrap;
+}
+
 .nav-links a {
   color:white;
   text-decoration:none;
-  margin-left:20px;
+  margin-left:15px;
+  font-size:15px;
 }
 
 .nav-links a:hover {
@@ -91,6 +113,7 @@ footer {
   padding:20px;
   color:#94a3b8;
 }
+
 </style>
 
 </head>
@@ -166,4 +189,4 @@ footer {
 </footer>
 
 </body>
-  </html>
+</html>
