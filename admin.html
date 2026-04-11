@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Blog Admin – Asaba Jumah</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  font-family: Arial;
+  background:#020617;
+  color:white;
+  margin:0;
+  padding:20px;
+}
+
+.container {
+  max-width:600px;
+  margin:auto;
+  background:#1e293b;
+  padding:20px;
+  border-radius:10px;
+}
+
+input, textarea {
+  width:100%;
+  margin-bottom:10px;
+  padding:10px;
+  border:none;
+  border-radius:5px;
+}
+
+button {
+  background:#38bdf8;
+  border:none;
+  padding:10px;
+  color:#020617;
+  font-weight:bold;
+  cursor:pointer;
+  margin-top:5px;
+  width:100%;
+}
+
+.post {
+  background:#0f172a;
+  padding:10px;
+  margin-top:10px;
+  border-radius:5px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Blog Admin Panel</h2>
+
+<input id="title" placeholder="Post Title">
+<textarea id="text" placeholder="Post Content"></textarea>
+<input id="link" placeholder="Read More Link (optional)">
+
+<button onclick="addPost()">Add Post</button>
+<button onclick="downloadJSON()">Download JSON</button>
+
+<h3>Saved Posts</h3>
+<div id="posts"></div>
+
+</div>
+
+<script>
+let posts = JSON.parse(localStorage.getItem("blogPosts")) || [];
+
+function renderPosts(){
+  let box = document.getElementById("posts");
+  box.innerHTML = "";
+
+  posts.forEach((p,i)=>{
+    box.innerHTML += `
+      <div class="post">
+        <b>${p.title}</b><br>
+        ${p.text}
+      </div>
+    `;
+  });
+}
+
+function addPost(){
+  let title = document.getElementById("title").value;
+  let text = document.getElementById("text").value;
+  let link = document.getElementById("link").value;
+
+  posts.unshift({title,text,link});
+  localStorage.setItem("blogPosts", JSON.stringify(posts));
+
+  renderPosts();
+}
+
+function downloadJSON(){
+  let data = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(posts,null,2));
+  let a = document.createElement("a");
+  a.href = data;
+  a.download = "blog-data.json";
+  a.click();
+}
+
+renderPosts();
+</script>
+
+</body>
+</html>
