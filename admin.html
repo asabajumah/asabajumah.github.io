@@ -2,89 +2,119 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Blog Admin – Asaba Jumah</title>
+<title>Admin Login – Asaba Jumah</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body {
-  font-family: Arial;
+  margin:0;
+  font-family:Arial;
   background:#020617;
   color:white;
-  margin:0;
+}
+
+.center {
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+}
+
+.box {
+  background:#1e293b;
+  padding:20px;
+  border-radius:10px;
+  width:300px;
+  text-align:center;
+}
+
+input {
+  width:100%;
+  padding:10px;
+  margin-top:10px;
+  border:none;
+  border-radius:5px;
+}
+
+button {
+  width:100%;
+  padding:10px;
+  margin-top:10px;
+  background:#38bdf8;
+  border:none;
+  font-weight:bold;
+  cursor:pointer;
+  color:#020617;
+}
+
+#adminPanel {
+  display:none;
   padding:20px;
 }
 
-.container {
+.post-box {
   max-width:600px;
   margin:auto;
   background:#1e293b;
   padding:20px;
   border-radius:10px;
 }
-
-input, textarea {
-  width:100%;
-  margin-bottom:10px;
-  padding:10px;
-  border:none;
-  border-radius:5px;
-}
-
-button {
-  background:#38bdf8;
-  border:none;
-  padding:10px;
-  color:#020617;
-  font-weight:bold;
-  cursor:pointer;
-  margin-top:5px;
-  width:100%;
-}
-
-.post {
-  background:#0f172a;
-  padding:10px;
-  margin-top:10px;
-  border-radius:5px;
-}
-
-img {
-  width:100%;
-  margin-top:10px;
-  border-radius:8px;
-}
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<!-- LOGIN SCREEN -->
+<div class="center" id="loginBox">
+  <div class="box">
+    <h2>Admin Login</h2>
+    <input type="password" id="password" placeholder="Enter Password">
+    <button onclick="login()">Login</button>
+    <p id="error" style="color:red;"></p>
+  </div>
+</div>
 
-<h2>Blog Admin Panel</h2>
+<!-- ADMIN PANEL -->
+<div id="adminPanel">
 
-<input id="title" placeholder="Post Title">
-<textarea id="text" placeholder="Post Content"></textarea>
+  <div class="post-box">
+    <h2>Create Blog Post</h2>
 
-<input type="file" id="imageInput" accept="image/*">
+    <input id="title" placeholder="Post Title">
+    <textarea id="text" placeholder="Post Content"></textarea>
+    <input type="file" id="imageInput">
 
-<button onclick="addPost()">Add Post</button>
-<button onclick="downloadJSON()">Download JSON</button>
+    <button onclick="addPost()">Add Post</button>
+    <button onclick="downloadJSON()">Download JSON</button>
 
-<h3>Saved Posts</h3>
-<div id="posts"></div>
+    <div id="posts"></div>
+  </div>
 
 </div>
 
 <script>
+const PASSWORD = "12345"; // CHANGE THIS
+
+function login(){
+  let pass = document.getElementById("password").value;
+
+  if(pass === PASSWORD){
+    document.getElementById("loginBox").style.display = "none";
+    document.getElementById("adminPanel").style.display = "block";
+  } else {
+    document.getElementById("error").innerText = "Wrong password!";
+  }
+}
+
+// BLOG SYSTEM
 let posts = JSON.parse(localStorage.getItem("blogPosts")) || [];
 
-// Convert image to Base64
-function toBase64(file) {
-  return new Promise((resolve, reject) => {
+function toBase64(file){
+  return new Promise((resolve)=>{
     let reader = new FileReader();
     reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = error => reject(error);
+    reader.onload = ()=>resolve(reader.result);
   });
 }
 
@@ -93,28 +123,27 @@ async function addPost(){
   let text = document.getElementById("text").value;
   let imageFile = document.getElementById("imageInput").files[0];
 
-  let imageData = "";
+  let image = "";
   if(imageFile){
-    imageData = await toBase64(imageFile);
+    image = await toBase64(imageFile);
   }
 
-  posts.unshift({title,text,image:imageData});
-
+  posts.unshift({title,text,image});
   localStorage.setItem("blogPosts", JSON.stringify(posts));
 
-  renderPosts();
+  render();
 }
 
-function renderPosts(){
+function render(){
   let box = document.getElementById("posts");
   box.innerHTML = "";
 
   posts.forEach(p=>{
     box.innerHTML += `
-      <div class="post">
+      <div style="margin-top:10px;background:#0f172a;padding:10px;border-radius:8px;">
         <b>${p.title}</b><br>
         ${p.text}
-        ${p.image ? `<img src="${p.image}">` : ""}
+        ${p.image ? `<img src="${p.image}" style="width:100%;margin-top:10px;border-radius:8px;">` : ""}
       </div>
     `;
   });
@@ -128,7 +157,7 @@ function downloadJSON(){
   a.click();
 }
 
-renderPosts();
+render();
 </script>
 
 </body>
