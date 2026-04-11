@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Films – Asaba Jumah</title>
+<meta name="description" content="Filmography of Asaba Jumah, Ugandan actor.">
 
-<meta name="description" content="Filmography of Asaba Jumah, Ugandan actor known for Wakaliwood and independent films.">
+<!-- ICONS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-
-/* BODY */
 body {
   margin:0;
-  padding-top:70px;
+  padding-top:60px;
   font-family:Arial;
   background:#020617;
   color:white;
@@ -24,92 +24,32 @@ body {
   position:fixed;
   top:0;
   width:100%;
-  z-index:1000;
-
   display:flex;
-  justify-content:space-between;
-  align-items:center;
-
-  padding:15px 20px;
+  justify-content:center;
+  gap:25px;
+  padding:15px;
   background:#020617;
   border-bottom:1px solid #1e293b;
 }
 
-.logo {
-  font-weight:bold;
-  font-size:18px;
-}
-
-/* NAV LINKS */
-.nav-links {
-  display:flex;
-}
-
-.nav-links a {
+.navbar a {
   color:white;
   text-decoration:none;
-  margin-left:20px;
 }
 
-/* HAMBURGER */
-.menu-toggle {
-  display:none;
-  font-size:24px;
-  cursor:pointer;
-}
-
-/* MOBILE */
-@media (max-width:768px){
-
-  .menu-toggle {
-    display:block;
-  }
-
-  .nav-links {
-    display:none;
-    flex-direction:column;
-    width:100%;
-    position:absolute;
-    top:60px;
-    left:0;
-    background:#020617;
-    padding:10px 0;
-  }
-
-  .nav-links a {
-    margin:10px 0;
-    text-align:center;
-  }
-
-  .nav-links.active {
-    display:flex;
-  }
-}
-
-/* HEADER */
-.header {
-  text-align:center;
-  padding:60px 20px;
-  background:linear-gradient(to bottom,#020617,#0f172a);
-}
-
-.header h1 {
-  font-size:40px;
-}
-
-.header p {
-  color:#94a3b8;
+.navbar a:hover {
+  color:#38bdf8;
 }
 
 /* CONTENT */
 .container {
-  max-width:1000px;
+  max-width:1100px;
   margin:auto;
   padding:20px;
 }
 
 .section {
-  margin-bottom:40px;
+  margin-bottom:50px;
 }
 
 .section h2 {
@@ -117,22 +57,47 @@ body {
   padding-bottom:10px;
 }
 
+/* GRID */
 .grid {
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:15px;
 }
 
+/* CARDS */
 .card {
   background:#1e293b;
   padding:15px;
   border-radius:10px;
+  transition:0.3s;
 }
 
-/* LINKS */
-a {
+.card:hover {
+  transform:scale(1.03);
+}
+
+/* BADGES */
+.verified {
+  color:#22c55e;
+  font-size:14px;
+}
+
+.unverified {
+  color:#f59e0b;
+  font-size:14px;
+}
+
+/* SOCIAL ICONS */
+.social-icons a {
+  display:inline-block;
+  margin:10px;
+  font-size:24px;
   color:#38bdf8;
-  text-decoration:none;
+}
+
+.social-icons a:hover {
+  color:white;
+  transform:scale(1.2);
 }
 
 /* FOOTER */
@@ -141,7 +106,6 @@ footer {
   padding:20px;
   color:#94a3b8;
 }
-
 </style>
 
 </head>
@@ -150,67 +114,114 @@ footer {
 
 <!-- NAVBAR -->
 <div class="navbar">
-  <div class="logo">Asaba Jumah</div>
-
-  <!-- ☰ BUTTON -->
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-
-  <div class="nav-links" id="navLinks">
-    <a href="/">Home</a>
-    <a href="/films">Films</a>
-    <a href="/contact">Contact</a>
-  </div>
-</div>
-
-<!-- HEADER -->
-<div class="header">
-  <h1>Filmography</h1>
-  <p>Selected works and appearances</p>
+<a href="index.html">Home</a>
+<a href="films.html">Films</a>
+<a href="contact.html">Contact</a>
 </div>
 
 <div class="container">
 
 <!-- VERIFIED FILMS -->
 <div class="section">
-<h2>Filmography (Verified)</h2>
+<h2>🎬 Verified Films</h2>
+
 <div class="grid">
-<div class="card">Once Upon a Time in Uganda (2021)</div>
-<div class="card">The Girl in the Yellow Jumper (2020) – Hakim</div>
-<div class="card">November Tear (2019) – Felix</div>
-<div class="card">Kyenvu (2018)</div>
-<div class="card">Attack on Nyege Nyege Island (2016)</div>
-<div class="card">Escape from Uganda (2013) – Moses</div>
+
+<div class="card">
+<b>Once Upon a Time in Uganda (2021)</b><br>
+<span class="verified">✔ Verified</span>
+</div>
+
+<div class="card">
+<b>The Girl in the Yellow Jumper (2020) – Hakim</b><br>
+<span class="verified">✔ Verified</span>
+</div>
+
+<div class="card">
+<b>November Tear (2019) – Felix</b><br>
+<span class="verified">✔ Verified</span>
+</div>
+
+<div class="card">
+<b>Kyenvu (2018)</b><br>
+<span class="verified">✔ Verified</span>
+</div>
+
+<div class="card">
+<b>Attack on Nyege Nyege Island (2016)</b><br>
+<span class="verified">✔ Verified</span>
+</div>
+
+<div class="card">
+<b>Escape from Uganda (2013) – Moses</b><br>
+<span class="verified">✔ Verified</span>
+</div>
+
 </div>
 </div>
 
-<!-- OTHER PROJECTS -->
+<!-- UNVERIFIED FILMS -->
 <div class="section">
-<h2>Other Projects</h2>
+<h2>🎥 Other / Unverified Projects</h2>
+
 <div class="grid">
-<div class="card">Titanic II (2010)</div>
-<div class="card">The Return of Uncle Benon (2011)</div>
-<div class="card">Ejjini Iye Ntwetwe (2015)</div>
-<div class="card">Eaten Alive in Uganda</div>
-<div class="card">Who Killed Captain Alex 2</div>
-<div class="card">November Tear 2</div>
-<div class="card">Wakaliwood Action Projects</div>
-<div class="card">Independent Short Films</div>
+
+<div class="card">
+<b>Titanic II (2010)</b><br>
+<span class="unverified">⚠ Unverified</span>
+</div>
+
+<div class="card">
+<b>The Return of Uncle Benon (2011)</b><br>
+<span class="unverified">⚠ Unverified</span>
+</div>
+
+<div class="card">
+<b>Ejjini Iye Ntwetwe (2015)</b><br>
+<span class="unverified">⚠ Unverified</span>
+</div>
+
+<div class="card">
+<b>Eaten Alive in Uganda</b><br>
+<span class="unverified">⚠ Unverified</span>
+</div>
+
+<div class="card">
+<b>Who Killed Captain Alex 2</b><br>
+<span class="unverified">⚠ Unverified</span>
+</div>
+
+<div class="card">
+<b>November Tear 2</b><br>
+<span class="unverified">⚠ Unverified</span>
+</div>
+
+<div class="card">
+<b>Wakaliwood Action Projects</b><br>
+<span class="unverified">⚠ Unverified</span>
+</div>
+
+<div class="card">
+<b>Independent Short Films</b><br>
+<span class="unverified">⚠ Unverified</span>
+</div>
+
 </div>
 </div>
 
-<!-- OFFICIAL PROFILES -->
+<!-- SOCIAL PROFILES -->
 <div class="section">
 <h2>Official Profiles</h2>
 
-<p>
-<a href="https://www.facebook.com/djfelixpro">Facebook</a><br><br>
-<a href="https://x.com/asabajumah">X (Twitter)</a><br><br>
-<a href="https://www.tiktok.com/@asabajumah">TikTok</a><br><br>
-<a href="https://www.instagram.com/djfelixpro">Instagram</a><br><br>
-<a href="https://www.youtube.com/@asabajumah">YouTube</a><br><br>
-<a href="https://www.imdb.com/name/nm18243050/">IMDb</a><br><br>
-<a href="https://www.themoviedb.org/person/6077619-asaba-jumah">TMDB</a>
-</p>
+<div class="social-icons">
+<a href="https://www.facebook.com/djfelixpro"><i class="fab fa-facebook"></i></a>
+<a href="https://x.com/asabajumah"><i class="fab fa-x-twitter"></i></a>
+<a href="https://www.tiktok.com/@asabajumah"><i class="fab fa-tiktok"></i></a>
+<a href="https://www.instagram.com/djfelixpro"><i class="fab fa-instagram"></i></a>
+<a href="https://www.youtube.com/@asabajumah"><i class="fab fa-youtube"></i></a>
+<a href="https://www.imdb.com/name/nm18243050/"><i class="fab fa-imdb"></i></a>
+<a href="https://www.themoviedb.org/person/6077619-asaba-jumah"><i class="fas fa-film"></i></a>
+</div>
 
 </div>
 
@@ -219,13 +230,6 @@ footer {
 <footer>
 © 2026 Asaba Jumah
 </footer>
-
-<!-- SCRIPT -->
-<script>
-function toggleMenu() {
-  document.getElementById("navLinks").classList.toggle("active");
-}
-</script>
 
 </body>
 </html>
