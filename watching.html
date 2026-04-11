@@ -1,102 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
 <title>Watch Movie</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-body{
-  margin:0;
-  font-family:Arial;
-  background:#0f172a;
-  color:white;
-  text-align:center;
-}
-
-/* PLAYER WRAPPER */
-.container{
-  padding:30px;
-}
-
-/* VIDEO BOX */
-.player-box{
-  background:#111827;
-  max-width:900px;
-  margin:auto;
-  padding:20px;
-  border-radius:15px;
-  box-shadow:0 0 15px rgba(0,0,0,0.5);
-}
-
-/* VIDEO */
-video{
-  width:100%;
-  border-radius:12px;
-}
-
-/* TEXT */
-h1{
-  margin-top:20px;
-}
-
-p{
-  color:#cbd5e1;
-}
-
-/* BUTTONS */
-.btn{
-  display:inline-block;
-  margin:10px;
-  padding:12px 16px;
-  background:#2563eb;
-  color:white;
-  text-decoration:none;
-  border-radius:10px;
-}
-
-.btn:hover{
-  background:#1d4ed8;
-}
-
-/* PREMIUM LOCK */
-.locked{
-  margin-top:30px;
-  background:#1e293b;
-  padding:20px;
-  border-radius:15px;
-}
-</style>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"></script>
 </head>
 
 <body>
 
-<div class="container">
+<h1>🎬 Movie Player</h1>
 
-  <!-- PLAYER -->
-  <div class="player-box">
+<div id="locked">🔒 Premium Required</div>
 
-    <video controls>
-      <source src="films/sample.mp4" type="video/mp4">
-      Your browser does not support video.
-    </video>
-
-    <h1>🎬 Sample Movie</h1>
-    <p>Enjoy watching in HD quality</p>
-
-    <a class="btn" href="films/sample.mp4" download>⬇ Download</a>
-
-  </div>
-
-  <!-- LOCKED AREA -->
-  <div class="locked">
-    <h2>🔒 Premium Movies Locked</h2>
-    <p>Unlock to access full library</p>
-
-    <a class="btn" href="checkout.html">Unlock Now</a>
-  </div>
-
+<div id="player" style="display:none;">
+  <video controls width="800">
+    <source src="YOUR_VIDEO_URL.mp4">
+  </video>
 </div>
+
+<script>
+firebase.auth().onAuthStateChanged(user => {
+
+  if(user){
+
+    firebase.firestore().collection("users")
+    .doc(user.email)
+    .get()
+    .then(doc => {
+
+      if(doc.exists && doc.data().premium){
+        document.getElementById("locked").style.display="none";
+        document.getElementById("player").style.display="block";
+      }
+
+    });
+
+  }
+
+});
+</script>
 
 </body>
 </html>
