@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Watch Movie</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  font-family:Arial;
+  background:#0f172a;
+  color:white;
+  text-align:center;
+}
+
+/* PLAYER WRAPPER */
+.container{
+  padding:30px;
+}
+
+/* VIDEO BOX */
+.player-box{
+  background:#111827;
+  max-width:900px;
+  margin:auto;
+  padding:20px;
+  border-radius:15px;
+  box-shadow:0 0 15px rgba(0,0,0,0.5);
+}
+
+/* VIDEO */
+video{
+  width:100%;
+  border-radius:12px;
+}
+
+/* TEXT */
+h1{
+  margin-top:20px;
+}
+
+p{
+  color:#cbd5e1;
+}
+
+/* BUTTONS */
+.btn{
+  display:inline-block;
+  margin:10px;
+  padding:12px 16px;
+  background:#2563eb;
+  color:white;
+  text-decoration:none;
+  border-radius:10px;
+}
+
+.btn:hover{
+  background:#1d4ed8;
+}
+
+/* PREMIUM LOCK */
+.locked{
+  margin-top:30px;
+  background:#1e293b;
+  padding:20px;
+  border-radius:15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- PLAYER -->
+  <div class="player-box">
+
+    <video controls>
+      <source src="films/sample.mp4" type="video/mp4">
+      Your browser does not support video.
+    </video>
+
+    <h1>🎬 Sample Movie</h1>
+    <p>Enjoy watching in HD quality</p>
+
+    <a class="btn" href="films/sample.mp4" download>⬇ Download</a>
+
+  </div>
+
+  <!-- LOCKED AREA -->
+  <div class="locked">
+    <h2>🔒 Premium Movies Locked</h2>
+    <p>Unlock to access full library</p>
+
+    <a class="btn" href="checkout.html">Unlock Now</a>
+  </div>
+
+</div>
+
+</body>
+</html>
