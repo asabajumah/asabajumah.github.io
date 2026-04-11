@@ -33,51 +33,6 @@
         "https://www.imdb.com/name/nm18243050/",
         "https://www.themoviedb.org/person/6077619-asaba-jumah"
       ]
-    },
-
-    {
-      "@type": "Movie",
-      "name": "The Girl in the Yellow Jumper",
-      "datePublished": "2020",
-      "actor": { "@id": "https://asabajumah.top/#person" },
-      "characterName": "Hakim"
-    },
-
-    {
-      "@type": "Movie",
-      "name": "November Tear",
-      "datePublished": "2019",
-      "actor": { "@id": "https://asabajumah.top/#person" },
-      "characterName": "Felix"
-    },
-
-    {
-      "@type": "Movie",
-      "name": "Once Upon a Time in Uganda",
-      "datePublished": "2021",
-      "actor": { "@id": "https://asabajumah.top/#person" }
-    },
-
-    {
-      "@type": "Movie",
-      "name": "Kyenvu",
-      "datePublished": "2018",
-      "actor": { "@id": "https://asabajumah.top/#person" }
-    },
-
-    {
-      "@type": "Movie",
-      "name": "Attack on Nyege Nyege Island",
-      "datePublished": "2016",
-      "actor": { "@id": "https://asabajumah.top/#person" }
-    },
-
-    {
-      "@type": "Movie",
-      "name": "Escape from Uganda",
-      "datePublished": "2013",
-      "actor": { "@id": "https://asabajumah.top/#person" },
-      "characterName": "Moses"
     }
 
   ]
@@ -86,16 +41,46 @@
 
 <style>
 body {margin:0;font-family:Arial;background:#020617;color:white;}
+
+/* NAVBAR */
+.navbar {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 20px;
+  background:#020617;
+  border-bottom:1px solid #1e293b;
+}
+
+.logo {
+  font-weight:bold;
+  font-size:18px;
+}
+
+.nav-links a {
+  color:white;
+  text-decoration:none;
+  margin-left:20px;
+}
+
+.nav-links a:hover {
+  color:#38bdf8;
+}
+
+/* HERO */
 .hero {text-align:center;padding:80px 20px;background:linear-gradient(to bottom,#020617,#0f172a);}
 .hero img {width:160px;border-radius:50%;margin-bottom:20px;}
 .hero h1 {font-size:44px;margin:10px 0;}
 .hero p {color:#94a3b8;font-size:18px;}
+
 .container {max-width:1000px;margin:auto;padding:20px;}
 .section {margin-bottom:40px;}
 .section h2 {border-bottom:2px solid #38bdf8;padding-bottom:10px;}
 .grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;}
 .card {background:#1e293b;padding:15px;border-radius:10px;}
+
 a {color:#38bdf8;text-decoration:none;}
+
 footer {text-align:center;padding:20px;color:#94a3b8;}
 </style>
 
@@ -103,6 +88,17 @@ footer {text-align:center;padding:20px;color:#94a3b8;}
 
 <body>
 
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="logo">Asaba Jumah</div>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/films">Films</a>
+    <a href="/contact">Contact</a>
+  </div>
+</div>
+
+<!-- HERO -->
 <div class="hero">
   <img src="asabajumah.jpg" alt="Asaba Jumah">
   <h1>Asaba Jumah</h1>
