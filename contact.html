@@ -22,7 +22,7 @@ body {
   position:fixed;
   top:0;
   width:100%;
-  z-index:1000;
+  z-index:9999;
 
   display:flex;
   justify-content:space-between;
@@ -33,12 +33,13 @@ body {
   border-bottom:1px solid #1e293b;
 }
 
+/* LOGO */
 .logo {
   font-weight:bold;
   font-size:18px;
 }
 
-/* NAV LINKS */
+/* LINKS */
 .nav-links {
   display:flex;
 }
@@ -49,7 +50,7 @@ body {
   margin-left:20px;
 }
 
-/* HAMBURGER */
+/* MENU BUTTON */
 .menu-toggle {
   display:none;
   font-size:24px;
@@ -58,7 +59,6 @@ body {
 
 /* MOBILE */
 @media (max-width:768px){
-
   .menu-toggle {
     display:block;
   }
@@ -66,21 +66,20 @@ body {
   .nav-links {
     display:none;
     flex-direction:column;
-    width:100%;
     position:absolute;
     top:60px;
     left:0;
+    width:100%;
     background:#020617;
-    padding:10px 0;
-  }
-
-  .nav-links a {
-    margin:10px 0;
-    text-align:center;
   }
 
   .nav-links.active {
     display:flex;
+  }
+
+  .nav-links a {
+    margin:15px 0;
+    text-align:center;
   }
 }
 
@@ -120,13 +119,13 @@ footer {
 <div class="navbar">
   <div class="logo">Asaba Jumah</div>
 
-  <!-- ☰ -->
+  <!-- ☰ BUTTON -->
   <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
   <div class="nav-links" id="navLinks">
-    <a href="/">Home</a>
-    <a href="/films.html">Films</a>
-    <a href="/contact.html">Contact</a>
+    <a href="index.html">Home</a>
+    <a href="films.html">Films</a>
+    <a href="contact.html">Contact</a>
   </div>
 </div>
 
@@ -137,7 +136,7 @@ footer {
 <p>Email for bookings:</p>
 <p>
 <a href="mailto:asabajumahfelix@gmail.com">
-asabajumah@gmail.com
+asabajumahfelix@gmail.com
 </a>
 </p>
 </div>
@@ -162,7 +161,8 @@ asabajumah@gmail.com
 <!-- SCRIPT -->
 <script>
 function toggleMenu() {
-  document.getElementById("navLinks").classList.toggle("active");
+  var menu = document.getElementById("navLinks");
+  menu.classList.toggle("active");
 }
 </script>
 
