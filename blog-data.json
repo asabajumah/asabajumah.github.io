@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "title": "First Post",
+    "text": "This is my first update.",
+    "image": "data:image/png;base64,iVBORw0KGgoAAA..."
+  },
+  {
+    "title": "Second Post",
+    "text": "Another update with image.",
+    "image": "data:image/png;base64,iVBORw0KGgoAAA..."
+  }
+]
