@@ -10,7 +10,7 @@
 
 <style>
 
-/* BODY FIX */
+/* BODY */
 body {
   margin:0;
   padding-top:70px;
@@ -30,7 +30,7 @@ body {
   justify-content:space-between;
   align-items:center;
 
-  padding:15px 30px;
+  padding:15px 20px;
   background:#020617;
   border-bottom:1px solid #1e293b;
 }
@@ -40,22 +40,50 @@ body {
   font-size:18px;
 }
 
-/* NAV LINKS FIX */
+/* NAV LINKS */
 .nav-links {
   display:flex;
-  align-items:center;
-  white-space:nowrap;
 }
 
 .nav-links a {
   color:white;
   text-decoration:none;
-  margin-left:15px;
-  font-size:15px;
+  margin-left:20px;
 }
 
-.nav-links a:hover {
-  color:#38bdf8;
+/* HAMBURGER */
+.menu-toggle {
+  display:none;
+  font-size:24px;
+  cursor:pointer;
+}
+
+/* MOBILE */
+@media (max-width:768px){
+
+  .menu-toggle {
+    display:block;
+  }
+
+  .nav-links {
+    display:none;
+    flex-direction:column;
+    width:100%;
+    position:absolute;
+    top:60px;
+    left:0;
+    background:#020617;
+    padding:10px 0;
+  }
+
+  .nav-links a {
+    margin:10px 0;
+    text-align:center;
+  }
+
+  .nav-links.active {
+    display:flex;
+  }
 }
 
 /* HEADER */
@@ -123,7 +151,11 @@ footer {
 <!-- NAVBAR -->
 <div class="navbar">
   <div class="logo">Asaba Jumah</div>
-  <div class="nav-links">
+
+  <!-- ☰ BUTTON -->
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+  <div class="nav-links" id="navLinks">
     <a href="/">Home</a>
     <a href="/films">Films</a>
     <a href="/contact">Contact</a>
@@ -187,6 +219,13 @@ footer {
 <footer>
 © 2026 Asaba Jumah
 </footer>
+
+<!-- SCRIPT -->
+<script>
+function toggleMenu() {
+  document.getElementById("navLinks").classList.toggle("active");
+}
+</script>
 
 </body>
 </html>
