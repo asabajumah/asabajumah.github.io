@@ -7,15 +7,7 @@
 <title>Contact – Asaba Jumah</title>
 
 <style>
-
-/* BODY */
-body {
-  margin:0;
-  padding-top:70px;
-  font-family:Arial;
-  background:#020617;
-  color:white;
-}
+body {margin:0;font-family:Arial;background:#020617;color:white;padding-top:70px;}
 
 /* NAVBAR */
 .navbar {
@@ -33,38 +25,37 @@ body {
   border-bottom:1px solid #1e293b;
 }
 
-/* LOGO */
 .logo {
   font-weight:bold;
-  font-size:18px;
 }
 
-/* LINKS */
+/* NAV LINKS */
 .nav-links {
-  display:flex;
+  display:flex; /* ✅ always visible on desktop */
 }
 
 .nav-links a {
   color:white;
   text-decoration:none;
-  margin-left:20px;
+  margin-left:15px;
 }
 
-/* MENU BUTTON */
+/* HAMBURGER */
 .menu-toggle {
   display:none;
   font-size:24px;
   cursor:pointer;
 }
 
-/* MOBILE */
+/* MOBILE ONLY */
 @media (max-width:768px){
+
   .menu-toggle {
     display:block;
   }
 
   .nav-links {
-    display:none;
+    display:none; /* hide only on mobile */
     flex-direction:column;
     position:absolute;
     top:60px;
@@ -108,7 +99,6 @@ footer {
   padding:20px;
   color:#94a3b8;
 }
-
 </style>
 
 </head>
@@ -119,13 +109,13 @@ footer {
 <div class="navbar">
   <div class="logo">Asaba Jumah</div>
 
-  <!-- ☰ BUTTON -->
+  <!-- ☰ -->
   <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
   <div class="nav-links" id="navLinks">
     <a href="index.html">Home</a>
-    <a href="films.html">Films</a>
     <a href="contact.html">Contact</a>
+    <a href="films.html">Films</a>
   </div>
 </div>
 
@@ -161,8 +151,7 @@ asabajumahfelix@gmail.com
 <!-- SCRIPT -->
 <script>
 function toggleMenu() {
-  var menu = document.getElementById("navLinks");
-  menu.classList.toggle("active");
+  document.getElementById("navLinks").classList.toggle("active");
 }
 </script>
 
