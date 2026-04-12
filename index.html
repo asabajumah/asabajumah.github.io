@@ -216,6 +216,68 @@ Read Full Biography
 
 </div>
 
+  <div class="section">
+<h2 style="text-align:center;">Latest Posts (Live Feed)</h2>
+
+<div class="scroll-wrapper">
+  <div id="feed" class="scroll-track"></div>
+</div>
+</div>
+
+<style>
+.scroll-wrapper {
+  overflow:hidden;
+  width:100%;
+  background:#0f172a;
+  padding:20px 0;
+}
+
+.scroll-track {
+  display:flex;
+  gap:20px;
+  width:max-content;
+  animation:scrollLeft 25s linear infinite;
+}
+
+@keyframes scrollLeft {
+  0% { transform:translateX(0); }
+  100% { transform:translateX(-50%); }
+}
+
+.feed-card {
+  min-width:300px;
+  background:#1e293b;
+  padding:15px;
+  border-radius:12px;
+  color:white;
+  flex-shrink:0;
+}
+
+.feed-card b {
+  color:#38bdf8;
+}
+</style>
+
+<script>
+fetch("feed.json")
+.then(res => res.json())
+.then(data => {
+
+  let container = document.getElementById("feed");
+
+  data.concat(data).forEach(post => {
+    container.innerHTML += `
+      <div class="feed-card">
+        <b>${post.platform}</b>
+        <p>${post.text}</p>
+        <a href="${post.link}" style="color:#38bdf8;">Open Post →</a>
+      </div>
+    `;
+  });
+
+});
+</script>
+  
 <!-- GALLERY -->
 <div class="section">
 <h2 class="center-title">Gallery</h2>
