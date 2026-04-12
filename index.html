@@ -280,21 +280,156 @@ Read Full Biography
       setTimeout(() => {
         bar.style.transition = "width 5s linear";
         bar.style.width = "100%";
-      }, 50);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asaba Jumah Portfolio</title>
 
-      clearTimeout(timer);
-      timer = setTimeout(nextStory, 5000);
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b0b0b;
+      color: white;
+      overflow-x: hidden;
     }
 
-    function nextStory() {
-      index++;
-      if (index >= images.length) {
-        document.getElementById("story").style.display = "none";
-        return;
-      }
-      showStory();
+    /* AUTO SCROLL GALLERY */
+    .slider {
+      width: 100%;
+      overflow: hidden;
+      padding: 15px 0;
     }
-  </script>
+
+    .track {
+      display: flex;
+      width: calc(220px * 14);
+      animation: scrollLeft 25s linear infinite;
+    }
+
+    @keyframes scrollLeft {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .card {
+      position: relative;
+      min-width: 220px;
+      margin: 0 8px;
+      border-radius: 16px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+
+    .card:hover img {
+      transform: scale(1.08);
+    }
+
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      padding: 12px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .tag {
+      font-size: 12px;
+      color: #ffcc00;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- AUTO SCROLLING GALLERY -->
+  <div class="slider">
+    <div class="track">
+
+      <div class="card">
+        <img src="Asaba Jumah.jpg">
+        <div class="overlay">Award Winner <div class="tag">Award</div></div>
+      </div>
+
+      <div class="card">
+        <img src="Asaba Jumah-Actor.jpg">
+        <div class="overlay">Best Actor <div class="tag">Film</div></div>
+      </div>
+
+      <div class="card">
+        <img src="Asaba Jumah.png">
+        <div class="overlay">Film Star <div class="tag">Celebrity</div></div>
+      </div>
+
+      <div class="card">
+        <img src="Asaba Jumah Actor photo.jpg">
+        <div class="overlay">Movie Role <div class="tag">Actor</div></div>
+      </div>
+
+      <div class="card">
+        <img src="asabajumah.jpg">
+        <div class="overlay">Celebrity Appearance <div class="tag">Event</div></div>
+      </div>
+
+      <div class="card">
+        <img src="IMG_20251119_112907_272.jpg">
+        <div class="overlay">Stage Performance <div class="tag">Live</div></div>
+      </div>
+
+      <div class="card">
+        <img src="Asaba Jumah 2026.jpg">
+        <div class="overlay">2026 Highlight <div class="tag">New</div></div>
+      </div>
+
+      <!-- DUPLICATE FOR SMOOTH LOOP -->
+      <div class="card">
+        <img src="Asaba Jumah.jpg">
+        <div class="overlay">Award Winner <div class="tag">Award</div></div>
+      </div>
+
+      <div class="card">
+        <img src="Asaba Jumah-Actor.jpg">
+        <div class="overlay">Best Actor <div class="tag">Film</div></div>
+      </div>
+
+      <div class="card">
+        <img src="Asaba Jumah.png">
+        <div class="overlay">Film Star <div class="tag">Celebrity</div></div>
+      </div>
+
+      <div class="card">
+        <img src="Asaba Jumah Actor photo.jpg">
+        <div class="overlay">Movie Role <div class="tag">Actor</div></div>
+      </div>
+
+      <div class="card">
+        <img src="asabajumah.jpg">
+        <div class="overlay">Celebrity Appearance <div class="tag">Event</div></div>
+      </div>
+
+      <div class="card">
+        <img src="IMG_20251119_112907_272.jpg">
+        <div class="overlay">Stage Performance <div class="tag">Live</div></div>
+      </div>
+
+      <div class="card">
+        <img src="Asaba Jumah 2026.jpg">
+        <div class="overlay">2026 Highlight <div class="tag">New</div></div>
+      </div>
+
+    </div>
+  </div>
 
 </body>
 </html>
