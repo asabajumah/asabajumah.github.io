@@ -6,7 +6,8 @@
 
 <title>Asaba Jumah – Official Website</title>
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <script type="application/ld+json">
+
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -14,33 +15,78 @@
   "alternateName": "Asaba Jumah Official Website",
   "url": "https://asabajumah.top"
 }
-  </script>
+</script>
 
 <!-- ICONS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-body {margin:0;padding-top:60px;font-family:Arial;background:#020617;color:white;}
+body {
+  margin:0;
+  padding-top:60px;
+  font-family:Arial;
+  background:#020617;
+  color:white;
+
+  /* 🔒 BLOCK TEXT SELECTION */
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
 .navbar {
-  position:fixed;top:0;width:100%;
-  display:flex;justify-content:center;gap:25px;
-  padding:15px;background:#020617;border-bottom:1px solid #1e293b;
+  position:fixed;
+  top:0;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  padding:15px;
+  background:#020617;
+  border-bottom:1px solid #1e293b;
 }
 
 .navbar a {color:white;text-decoration:none;}
 .navbar a:hover {color:#38bdf8;}
 
-.hero {text-align:center;padding:80px 20px;background:linear-gradient(to bottom,#020617,#0f172a);}
-.hero img {width:160px;border-radius:50%;margin-bottom:20px;}
+.hero {
+  text-align:center;
+  padding:80px 20px;
+  background:linear-gradient(to bottom,#020617,#0f172a);
+}
 
-.container {max-width:1000px;margin:auto;padding:20px;}
+.hero img {
+  width:160px;
+  border-radius:50%;
+  margin-bottom:20px;
+}
 
-.section {margin-bottom:40px;}
-.section h2 {border-bottom:2px solid #38bdf8;padding-bottom:10px;}
+.container {
+  max-width:1000px;
+  margin:auto;
+  padding:20px;
+}
 
-.grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;}
-.card {background:#1e293b;padding:15px;border-radius:10px;}
+.section {
+  margin-bottom:40px;
+}
+
+.section h2 {
+  border-bottom:2px solid #38bdf8;
+  padding-bottom:10px;
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:15px;
+}
+
+.card {
+  background:#1e293b;
+  padding:15px;
+  border-radius:10px;
+}
 
 button.read-more {
   background:#38bdf8;
@@ -53,8 +99,48 @@ button.read-more {
   font-weight:bold;
 }
 
-button.read-more:hover {
-  opacity:0.85;
+/* GALLERY */
+.viewport {
+  width:100%;
+  overflow:hidden;
+  padding:20px 0;
+}
+
+.feed {
+  display:flex;
+  width:max-content;
+  animation:scrollLeft 25s linear infinite;
+}
+
+@keyframes scrollLeft {
+  0% {transform:translateX(0);}
+  100% {transform:translateX(-50%);}
+}
+
+.post {
+  min-width:320px;
+  margin:0 10px;
+  border-radius:14px;
+  overflow:hidden;
+  background:#111;
+  flex-shrink:0;
+}
+
+.post img {
+  width:100%;
+  height:260px;
+  object-fit:cover;
+}
+
+.caption {
+  padding:12px;
+  font-weight:bold;
+}
+
+.tag {
+  font-size:12px;
+  color:#ffcc00;
+  font-weight:normal;
 }
 
 .social-icons a {
@@ -62,46 +148,46 @@ button.read-more:hover {
   margin:10px;
   font-size:24px;
   color:#38bdf8;
-  transition:0.3s;
 }
 
-.social-icons a:hover {
-  color:white;
-  transform:scale(1.2);
+footer {
+  text-align:center;
+  padding:20px;
+  color:#94a3b8;
 }
-
-footer {text-align:center;padding:20px;color:#94a3b8;}
 </style>
 </head>
 
 <body>
 
+<!-- NAVBAR -->
 <div class="navbar">
 <a href="index.html">Home</a>
 <a href="films.html">Films</a>
 <a href="contact.html">Contact</a>
-  <a href="blog.html">Blog</a>
+<a href="blog.html">Blog</a>
 </div>
 
+<!-- HERO -->
 <div class="hero">
-<img src="asabajumah.jpg" alt="Asaba Jumah">
+<img src="asabajumah.jpg">
 <h1>Asaba Jumah</h1>
 <p>Actor • Ugandan</p>
 </div>
 
 <div class="container">
 
+<!-- BIO -->
 <div class="section">
 <h2>Biography</h2>
 <p>Asaba Jumah is a Ugandan actor known for Wakaliwood films and independent productions.</p>
 
-<!-- BUTTON REDIRECT -->
 <button class="read-more" onclick="window.location.href='/about.html'">
 Read Full Biography
 </button>
-
 </div>
 
+<!-- FILMS -->
 <div class="section">
 <h2>Film Highlights</h2>
 <div class="grid">
@@ -111,168 +197,51 @@ Read Full Biography
 </div>
 </div>
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Asaba Jumah Portfolio</title>
-
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0b0b0b;
-      color: white;
-      overflow-x: hidden;
-    }
-
-    .header {
-      text-align: center;
-      padding: 18px;
-      font-size: 26px;
-      font-weight: bold;
-    }
-
-    .viewport {
-      width: 100%;
-      overflow: hidden;
-      padding: 20px 0;
-    }
-
-    .feed {
-      display: flex;
-      width: max-content;
-      animation: scrollLeft 25s linear infinite;
-    }
-
-    @keyframes scrollLeft {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    .post {
-      min-width: 320px;
-      margin: 0 10px;
-      border-radius: 14px;
-      overflow: hidden;
-      background: #111;
-      flex-shrink: 0;
-    }
-
-    .post img {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .caption {
-      padding: 12px;
-      font-size: 15px;
-      font-weight: bold;
-    }
-
-    .tag {
-      font-size: 12px;
-      color: #ffcc00;
-      margin-top: 5px;
-      font-weight: normal;
-    }
-  </style>
-</head>
-
-<body>
-
-<div class="header">Gallery</div>
+<!-- GALLERY -->
+<div class="section">
+<h2>Gallery</h2>
 
 <div class="viewport">
   <div class="feed">
 
     <div class="post">
       <img src="Asaba Jumah.jpg">
-      <div class="caption">Award Winner<div class="tag">Award</div></div>
+      <div class="caption">Award Winner <div class="tag">Award</div></div>
     </div>
 
     <div class="post">
       <img src="Asaba Jumah-Actor.jpg">
-      <div class="caption">Best Actor<div class="tag">Film</div></div>
+      <div class="caption">Best Actor <div class="tag">Film</div></div>
     </div>
 
     <div class="post">
       <img src="Asaba Jumah.png">
-      <div class="caption">Film Star<div class="tag">Celebrity</div></div>
+      <div class="caption">Film Star <div class="tag">Celebrity</div></div>
     </div>
 
     <div class="post">
       <img src="Asaba Jumah Actor photo.jpg">
-      <div class="caption">Movie Role<div class="tag">Actor</div></div>
+      <div class="caption">Movie Role <div class="tag">Actor</div></div>
     </div>
 
     <div class="post">
       <img src="asabajumah.jpg">
-      <div class="caption">Celebrity Appearance<div class="tag">Event</div></div>
+      <div class="caption">Event Appearance <div class="tag">Event</div></div>
     </div>
 
     <div class="post">
       <img src="IMG_20251119_112907_272.jpg">
-      <div class="caption">Stage Performance<div class="tag">Live</div></div>
-    </div>
-
-    <div class="post">
-      <img src="Asaba Jumah 2026.jpg">
-      <div class="caption">2026 Highlight<div class="tag">New</div></div>
-    </div>
-
-    <!-- duplicate for smooth infinite scroll -->
-
-    <div class="post">
-      <img src="Asaba Jumah.jpg">
-      <div class="caption">Award Winner<div class="tag">Award</div></div>
-    </div>
-
-    <div class="post">
-      <img src="Asaba Jumah-Actor.jpg">
-      <div class="caption">Best Actor<div class="tag">Film</div></div>
-    </div>
-
-    <div class="post">
-      <img src="Asaba Jumah.png">
-      <div class="caption">Film Star<div class="tag">Celebrity</div></div>
-    </div>
-
-    <div class="post">
-      <img src="Asaba Jumah Actor photo.jpg">
-      <div class="caption">Movie Role<div class="tag">Actor</div></div>
-    </div>
-
-    <div class="post">
-      <img src="asabajumah.jpg">
-      <div class="caption">Celebrity Appearance<div class="tag">Event</div></div>
-    </div>
-
-    <div class="post">
-      <img src="IMG_20251119_112907_272.jpg">
-      <div class="caption">Stage Performance<div class="tag">Live</div></div>
-    </div>
-
-    <div class="post">
-      <img src="Asaba Jumah 2026.jpg">
-      <div class="caption">2026 Highlight<div class="tag">New</div></div>
+      <div class="caption">Stage Performance <div class="tag">Live</div></div>
     </div>
 
   </div>
 </div>
 
-</body>
-        </html>
+</div>
 
-
-
-  
+<!-- PROFILES -->
 <div class="section">
-<center><h2>Official Profiles</h2></center>
+<h2>Official Profiles</h2>
 
 <div class="social-icons">
 <a href="https://www.facebook.com/djfelixpro"><i class="fab fa-facebook"></i></a>
@@ -280,12 +249,20 @@ Read Full Biography
 <a href="https://www.tiktok.com/@asabajumah"><i class="fab fa-tiktok"></i></a>
 <a href="https://www.instagram.com/djfelixpro"><i class="fab fa-instagram"></i></a>
 <a href="https://www.youtube.com/@asabajumah"><i class="fab fa-youtube"></i></a>
-<a href="https://www.imdb.com/name/nm18243050/"><i class="fab fa-imdb"></i></a>
-<a href="https://www.themoviedb.org/person/6077619-asaba-jumah"><i class="fas fa-film"></i></a>
 </div>
 
+</div>
+
+</div>
 
 <footer>© 2026 Asaba Jumah</footer>
+
+<!-- 🔒 ANTI COPY SCRIPT -->
+<script>
+document.addEventListener("copy", function(e) {
+  e.preventDefault();
+});
+</script>
 
 </body>
 </html>
