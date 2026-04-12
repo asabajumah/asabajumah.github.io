@@ -111,6 +111,194 @@ Read Full Biography
 </div>
 </div>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asaba Jumah Portfolio</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b0b0b;
+      color: white;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      padding: 15px;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      cursor: pointer;
+    }
+
+    .card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+
+    .card:hover img {
+      transform: scale(1.08);
+    }
+
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      padding: 12px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .tag {
+      font-size: 12px;
+      color: #ffcc00;
+    }
+
+    /* STORY MODE */
+    .story {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      z-index: 1000;
+      flex-direction: column;
+    }
+
+    .progress {
+      height: 4px;
+      background: #333;
+      width: 100%;
+      position: absolute;
+      top: 0;
+    }
+
+    .bar {
+      height: 4px;
+      width: 0%;
+      background: white;
+    }
+
+    .story img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="grid">
+
+    <div class="card" onclick="startStory(0)">
+      <img src="Asaba Jumah.jpg">
+      <div class="overlay">Award Winner <div class="tag">Award</div></div>
+    </div>
+
+    <div class="card" onclick="startStory(1)">
+      <img src="Asaba Jumah-Actor.jpg">
+      <div class="overlay">Best Actor <div class="tag">Film</div></div>
+    </div>
+
+    <div class="card" onclick="startStory(2)">
+      <img src="Asaba Jumah.png">
+      <div class="overlay">Film Star <div class="tag">Celebrity</div></div>
+    </div>
+
+    <div class="card" onclick="startStory(3)">
+      <img src="Asaba Jumah Actor photo.jpg">
+      <div class="overlay">Movie Role <div class="tag">Actor</div></div>
+    </div>
+
+    <div class="card" onclick="startStory(4)">
+      <img src="asabajumah.jpg">
+      <div class="overlay">Celebrity Appearance <div class="tag">Event</div></div>
+    </div>
+
+    <div class="card" onclick="startStory(5)">
+      <img src="IMG_20251119_112907_272.jpg">
+      <div class="overlay">Stage Performance <div class="tag">Live</div></div>
+    </div>
+
+    <div class="card" onclick="startStory(6)">
+      <img src="Asaba Jumah 2026.jpg">
+      <div class="overlay">2026 Highlight <div class="tag">New</div></div>
+    </div>
+
+  </div>
+
+  <!-- STORY MODE -->
+  <div class="story" id="story" onclick="nextStory()">
+    <div class="progress"><div class="bar" id="bar"></div></div>
+    <img id="storyImg">
+  </div>
+
+  <script>
+    const images = [
+      "Asaba Jumah.jpg",
+      "Asaba Jumah-Actor.jpg",
+      "Asaba Jumah.png",
+      "Asaba Jumah Actor photo.jpg",
+      "asabajumah.jpg",
+      "IMG_20251119_112907_272.jpg",
+      "Asaba Jumah 2026.jpg"
+    ];
+
+    let index = 0;
+    let timer;
+
+    function startStory(i) {
+      index = i;
+      document.getElementById("story").style.display = "flex";
+      showStory();
+    }
+
+    function showStory() {
+      const img = document.getElementById("storyImg");
+      const bar = document.getElementById("bar");
+
+      img.src = images[index];
+
+      bar.style.transition = "none";
+      bar.style.width = "0%";
+
+      setTimeout(() => {
+        bar.style.transition = "width 5s linear";
+        bar.style.width = "100%";
+      }, 50);
+
+      clearTimeout(timer);
+      timer = setTimeout(nextStory, 5000);
+    }
+
+    function nextStory() {
+      index++;
+      if (index >= images.length) {
+        document.getElementById("story").style.display = "none";
+        return;
+      }
+      showStory();
+    }
+  </script>
+
+</body>
+</html>
+  
 <div class="section">
 <h2>Official Profiles</h2>
 
