@@ -7,6 +7,9 @@
 <title>Blog Post – Asaba Jumah</title>
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
+<!-- ICONS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
 body {
   margin:0;
@@ -76,7 +79,7 @@ body {
   line-height:1.7;
 }
 
-/* BACK */
+/* BACK BUTTON */
 .back {
   display:inline-block;
   margin-top:20px;
@@ -115,14 +118,14 @@ body {
 
 <body>
 
-<!-- NAV -->
+<!-- NAVBAR -->
 <div class="navbar">
 <a href="index.html">Home</a>
 <a href="blog.html">Blog</a>
 <a href="about.html">About</a>
 </div>
 
-<!-- POST -->
+<!-- POST CONTENT -->
 <div class="container" id="post"></div>
 
 <script>
@@ -140,10 +143,11 @@ fetch("blog-data.json")
     return;
   }
 
+  // Render post
   document.getElementById("post").innerHTML = `
     <div class="post-card">
 
-      ${post.image ? `<img src="${post.image}">` : ""}
+      ${post.image ? `<img src="${post.image}" alt="Blog Image">` : ""}
 
       <div class="post-content">
         <h1>${post.title}</h1>
@@ -153,7 +157,7 @@ fetch("blog-data.json")
       </div>
     </div>
 
-    <!-- PROFILES SECTION -->
+    <!-- PROFILES -->
     <div class="section">
       <h2>Official Profiles</h2>
 
@@ -168,11 +172,37 @@ fetch("blog-data.json")
       </div>
     </div>
   `;
+
+  // BLOG SCHEMA (GOOGLE RICH RESULTS)
+  let schema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.text,
+    "image": post.image || "https://asabajumah.top/favicon.ico",
+    "author": {
+      "@type": "Person",
+      "name": "Asaba Jumah"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Asaba Jumah",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://asabajumah.top/favicon.ico"
+      }
+    },
+    "mainEntityOfPage": window.location.href
+  };
+
+  let script = document.createElement("script");
+  script.type = "application/ld+json";
+  script.text = JSON.stringify(schema);
+
+  document.head.appendChild(script);
+
 });
 </script>
-
-<!-- FONT AWESOME -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </body>
 </html>
