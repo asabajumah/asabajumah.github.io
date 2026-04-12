@@ -7,6 +7,7 @@
 <title>Asaba Jumah – Official Website</title>
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
+<!-- SEO SCHEMA -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -28,12 +29,13 @@ body {
   background:#020617;
   color:white;
 
-  /* 🔒 BLOCK TEXT SELECTION */
+  /* 🔒 BLOCK COPY */
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
 
+/* NAVBAR */
 .navbar {
   position:fixed;
   top:0;
@@ -46,9 +48,16 @@ body {
   border-bottom:1px solid #1e293b;
 }
 
-.navbar a {color:white;text-decoration:none;}
-.navbar a:hover {color:#38bdf8;}
+.navbar a {
+  color:white;
+  text-decoration:none;
+}
 
+.navbar a:hover {
+  color:#38bdf8;
+}
+
+/* HERO */
 .hero {
   text-align:center;
   padding:80px 20px;
@@ -59,8 +68,10 @@ body {
   width:160px;
   border-radius:50%;
   margin-bottom:20px;
+  border:3px solid #38bdf8;
 }
 
+/* SECTIONS */
 .container {
   max-width:1000px;
   margin:auto;
@@ -74,29 +85,6 @@ body {
 .section h2 {
   border-bottom:2px solid #38bdf8;
   padding-bottom:10px;
-}
-
-.grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:15px;
-}
-
-.card {
-  background:#1e293b;
-  padding:15px;
-  border-radius:10px;
-}
-
-button.read-more {
-  background:#38bdf8;
-  color:#020617;
-  padding:10px 15px;
-  border:none;
-  border-radius:5px;
-  cursor:pointer;
-  margin-top:10px;
-  font-weight:bold;
 }
 
 /* GALLERY */
@@ -140,20 +128,42 @@ button.read-more {
 .tag {
   font-size:12px;
   color:#ffcc00;
-  font-weight:normal;
 }
 
+/* PROFILES */
 .social-icons a {
   display:inline-block;
   margin:10px;
-  font-size:24px;
+  font-size:26px;
   color:#38bdf8;
+  transition:0.3s;
 }
 
+.social-icons a:hover {
+  color:white;
+  transform:scale(1.2);
+}
+
+/* FOOTER */
 footer {
   text-align:center;
   padding:20px;
   color:#94a3b8;
+}
+
+/* PROTECTED POPUP */
+#protectedMsg {
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  background:red;
+  color:white;
+  padding:10px 18px;
+  border-radius:8px;
+  font-weight:bold;
+  display:none;
+  z-index:9999;
 }
 </style>
 </head>
@@ -170,7 +180,7 @@ footer {
 
 <!-- HERO -->
 <div class="hero">
-<img src="asabajumah.jpg">
+<img src="asabajumah.jpg" alt="Asaba Jumah">
 <h1>Asaba Jumah</h1>
 <p>Actor • Ugandan</p>
 </div>
@@ -181,20 +191,6 @@ footer {
 <div class="section">
 <h2>Biography</h2>
 <p>Asaba Jumah is a Ugandan actor known for Wakaliwood films and independent productions.</p>
-
-<button class="read-more" onclick="window.location.href='/about.html'">
-Read Full Biography
-</button>
-</div>
-
-<!-- FILMS -->
-<div class="section">
-<h2>Film Highlights</h2>
-<div class="grid">
-<div class="card">The Girl in the Yellow Jumper</div>
-<div class="card">November Tear</div>
-<div class="card">Once Upon a Time in Uganda</div>
-</div>
 </div>
 
 <!-- GALLERY -->
@@ -204,35 +200,10 @@ Read Full Biography
 <div class="viewport">
   <div class="feed">
 
-    <div class="post">
-      <img src="Asaba Jumah.jpg">
-      <div class="caption">Award Winner <div class="tag">Award</div></div>
-    </div>
-
-    <div class="post">
-      <img src="Asaba Jumah-Actor.jpg">
-      <div class="caption">Best Actor <div class="tag">Film</div></div>
-    </div>
-
-    <div class="post">
-      <img src="Asaba Jumah.png">
-      <div class="caption">Film Star <div class="tag">Celebrity</div></div>
-    </div>
-
-    <div class="post">
-      <img src="Asaba Jumah Actor photo.jpg">
-      <div class="caption">Movie Role <div class="tag">Actor</div></div>
-    </div>
-
-    <div class="post">
-      <img src="asabajumah.jpg">
-      <div class="caption">Event Appearance <div class="tag">Event</div></div>
-    </div>
-
-    <div class="post">
-      <img src="IMG_20251119_112907_272.jpg">
-      <div class="caption">Stage Performance <div class="tag">Live</div></div>
-    </div>
+    <div class="post"><img src="Asaba Jumah.jpg"><div class="caption">Award Winner <div class="tag">Award</div></div></div>
+    <div class="post"><img src="Asaba Jumah-Actor.jpg"><div class="caption">Best Actor <div class="tag">Film</div></div></div>
+    <div class="post"><img src="Asaba Jumah.png"><div class="caption">Film Star <div class="tag">Celebrity</div></div></div>
+    <div class="post"><img src="asabajumah.jpg"><div class="caption">Event Appearance <div class="tag">Event</div></div></div>
 
   </div>
 </div>
@@ -244,23 +215,43 @@ Read Full Biography
 <h2>Official Profiles</h2>
 
 <div class="social-icons">
-<a href="https://www.facebook.com/djfelixpro"><i class="fab fa-facebook"></i></a>
-<a href="https://x.com/asabajumah"><i class="fab fa-x-twitter"></i></a>
-<a href="https://www.tiktok.com/@asabajumah"><i class="fab fa-tiktok"></i></a>
-<a href="https://www.instagram.com/djfelixpro"><i class="fab fa-instagram"></i></a>
-<a href="https://www.youtube.com/@asabajumah"><i class="fab fa-youtube"></i></a>
-</div>
 
+<a href="https://www.facebook.com/djfelixpro" target="_blank"><i class="fab fa-facebook"></i></a>
+<a href="https://x.com/asabajumah" target="_blank"><i class="fab fa-x-twitter"></i></a>
+<a href="https://www.instagram.com/djfelixpro" target="_blank"><i class="fab fa-instagram"></i></a>
+<a href="https://www.tiktok.com/@asabajumah" target="_blank"><i class="fab fa-tiktok"></i></a>
+<a href="https://www.youtube.com/@asabajumah" target="_blank"><i class="fab fa-youtube"></i></a>
+<a href="https://www.imdb.com/name/nm18243050/" target="_blank"><i class="fab fa-imdb"></i></a>
+<a href="https://www.themoviedb.org/person/6077619-asaba-jumah" target="_blank"><i class="fas fa-film"></i></a>
+
+</div>
 </div>
 
 </div>
 
 <footer>© 2026 Asaba Jumah</footer>
 
-<!-- 🔒 ANTI COPY SCRIPT -->
+<!-- 🔒 PROTECTION SCRIPT -->
+<div id="protectedMsg">Protected 🔒</div>
+
 <script>
+function showProtected() {
+  let msg = document.getElementById("protectedMsg");
+  msg.style.display = "block";
+
+  setTimeout(() => {
+    msg.style.display = "none";
+  }, 1500);
+}
+
 document.addEventListener("copy", function(e) {
   e.preventDefault();
+  showProtected();
+});
+
+document.addEventListener("contextmenu", function(e) {
+  e.preventDefault();
+  showProtected();
 });
 </script>
 
