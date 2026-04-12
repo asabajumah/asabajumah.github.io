@@ -7,7 +7,6 @@
 <title>Blog – Asaba Jumah</title>
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
-<!-- ICONS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
@@ -17,6 +16,11 @@ body {
   font-family:Arial;
   background:#020617;
   color:white;
+
+  /* ✅ DISABLE SELECT */
+  -webkit-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
 }
 
 /* NAVBAR */
@@ -33,14 +37,8 @@ body {
   z-index:1000;
 }
 
-.navbar a {
-  color:white;
-  text-decoration:none;
-}
-
-.navbar a:hover {
-  color:#38bdf8;
-}
+.navbar a {color:white;text-decoration:none;}
+.navbar a:hover {color:#38bdf8;}
 
 /* HERO */
 .hero {
@@ -49,14 +47,8 @@ body {
   background:linear-gradient(to bottom,#020617,#0f172a);
 }
 
-.hero h1 {
-  margin:0;
-  font-size:40px;
-}
-
-.hero p {
-  color:#94a3b8;
-}
+.hero h1 {margin:0;font-size:40px;}
+.hero p {color:#94a3b8;}
 
 /* CONTAINER */
 .container {
@@ -86,17 +78,13 @@ body {
   border-color:#38bdf8;
 }
 
-/* IMAGE */
 .card img {
   width:100%;
   height:180px;
   object-fit:cover;
 }
 
-/* CONTENT */
-.card-content {
-  padding:15px;
-}
+.card-content {padding:15px;}
 
 .card h3 {
   margin:0;
@@ -111,7 +99,6 @@ body {
   line-height:1.5;
 }
 
-/* READ MORE */
 .readmore {
   display:inline-block;
   margin-top:10px;
@@ -120,17 +107,7 @@ body {
   font-weight:bold;
 }
 
-.readmore:hover {
-  text-decoration:underline;
-}
-
-/* FOOTER */
-footer {
-  text-align:center;
-  padding:20px;
-  color:#94a3b8;
-  margin-top:40px;
-}
+.readmore:hover {text-decoration:underline;}
 
 /* SOCIAL */
 .section {
@@ -143,12 +120,27 @@ footer {
   margin:10px;
   font-size:24px;
   color:#38bdf8;
-  transition:0.3s;
 }
 
-.social-icons a:hover {
+footer {
+  text-align:center;
+  padding:20px;
+  color:#94a3b8;
+}
+
+/* 🔒 PROTECTED MESSAGE */
+#protectedMsg {
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  background:red;
   color:white;
-  transform:scale(1.2);
+  padding:10px 18px;
+  border-radius:8px;
+  font-weight:bold;
+  display:none;
+  z-index:9999;
 }
 </style>
 </head>
@@ -184,21 +176,16 @@ fetch("blog-data.json")
   container.innerHTML = "";
 
   data.forEach((post, index) => {
-
     container.innerHTML += `
       <div class="card">
-
         ${post.image ? `<img src="${post.image}" alt="Blog Image">` : ""}
-
         <div class="card-content">
           <h3>${post.title}</h3>
           <p>${post.text.substring(0,120)}...</p>
-
           <a class="readmore" href="post.html?id=${index}">
             Read More →
           </a>
         </div>
-
       </div>
     `;
   });
@@ -222,30 +209,35 @@ fetch("blog-data.json")
 </div>
 
 <footer>© 2026 Asaba Jumah</footer>
-<!-- PROTECTION SCRIPT -->
-<div id="protectedMsg">⚠️    ALERT: content is protected 🔒</div>
+
+<!-- 🔒 MESSAGE -->
+<div id="protectedMsg">⚠️ Alert: content is protected 🔒</div>
 
 <script>
 function showProtected() {
   let msg = document.getElementById("protectedMsg");
   msg.style.display = "block";
-
-  setTimeout(() => {
-    msg.style.display = "none";
-  }, 1500);
+  setTimeout(() => { msg.style.display = "none"; }, 1500);
 }
 
-document.addEventListener("copy", function(e) {
+/* BLOCK ACTIONS */
+document.addEventListener("copy", function(e){
   e.preventDefault();
   showProtected();
 });
 
-document.addEventListener("contextmenu", function(e) {
+document.addEventListener("contextmenu", function(e){
   e.preventDefault();
   showProtected();
+});
+
+document.addEventListener("keydown", function(e){
+  if (e.ctrlKey && (e.key === "c" || e.key === "u" || e.key === "s")) {
+    e.preventDefault();
+    showProtected();
+  }
 });
 </script>
 
- 
 </body>
 </html>
