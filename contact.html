@@ -9,21 +9,51 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-body {margin:0;padding-top:60px;font-family:Arial;background:#020617;color:white;}
+body {
+  margin:0;
+  padding-top:60px;
+  font-family:Arial;
+  background:#020617;
+  color:white;
 
+  /* 🔒 DISABLE SELECT */
+  -webkit-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+}
+
+/* NAVBAR */
 .navbar {
-  position:fixed;top:0;width:100%;
-  display:flex;justify-content:center;gap:25px;
-  padding:15px;background:#020617;border-bottom:1px solid #1e293b;
+  position:fixed;
+  top:0;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  padding:15px;
+  background:#020617;
+  border-bottom:1px solid #1e293b;
 }
 
 .navbar a {color:white;text-decoration:none;}
 .navbar a:hover {color:#38bdf8;}
 
-.container {max-width:800px;margin:auto;padding:40px 20px;text-align:center;}
+/* CONTENT */
+.container {
+  max-width:800px;
+  margin:auto;
+  padding:40px 20px;
+  text-align:center;
+}
 
-.card {background:#1e293b;padding:25px;border-radius:12px;margin-bottom:20px;}
+.card {
+  background:#1e293b;
+  padding:25px;
+  border-radius:12px;
+  margin-bottom:20px;
+}
 
+/* SOCIAL */
 .social-icons a {
   display:inline-block;
   margin:10px;
@@ -36,7 +66,27 @@ body {margin:0;padding-top:60px;font-family:Arial;background:#020617;color:white
   transform:scale(1.2);
 }
 
-footer {text-align:center;padding:20px;color:#94a3b8;}
+/* FOOTER */
+footer {
+  text-align:center;
+  padding:20px;
+  color:#94a3b8;
+}
+
+/* 🔒 POPUP */
+#protectedMsg {
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  background:red;
+  color:white;
+  padding:10px 18px;
+  border-radius:8px;
+  font-weight:bold;
+  display:none;
+  z-index:9999;
+}
 </style>
 </head>
 
@@ -46,7 +96,7 @@ footer {text-align:center;padding:20px;color:#94a3b8;}
 <a href="index.html">Home</a>
 <a href="films.html">Films</a>
 <a href="contact.html">Contact</a>
-  <a href="blog.html">Blog</a>
+<a href="blog.html">Blog</a>
 </div>
 
 <div class="container">
@@ -54,8 +104,8 @@ footer {text-align:center;padding:20px;color:#94a3b8;}
 <div class="card">
 <h2>Contact</h2>
 <p>Email:</p>
-  <p>Email for bookings:</p>
-<p><a href="mailto: info@asabajumah.top">info@asabajumah.top</a></p>
+<p>Email for bookings:</p>
+<p><a href="mailto:info@asabajumah.top">info@asabajumah.top</a></p>
 </div>
 
 <div class="card">
@@ -76,6 +126,34 @@ footer {text-align:center;padding:20px;color:#94a3b8;}
 </div>
 
 <footer>© 2026 Asaba Jumah</footer>
+
+<!-- 🔒 MESSAGE -->
+<div id="protectedMsg">Protected 🔒</div>
+
+<script>
+function showProtected(){
+  let msg=document.getElementById("protectedMsg");
+  msg.style.display="block";
+  setTimeout(()=>{msg.style.display="none";},1500);
+}
+
+document.addEventListener("copy",e=>{
+  e.preventDefault();
+  showProtected();
+});
+
+document.addEventListener("contextmenu",e=>{
+  e.preventDefault();
+  showProtected();
+});
+
+document.addEventListener("keydown",e=>{
+  if(e.ctrlKey&&(e.key==="c"||e.key==="u"||e.key==="s")){
+    e.preventDefault();
+    showProtected();
+  }
+});
+</script>
 
 </body>
 </html>
