@@ -222,6 +222,30 @@ fetch("blog-data.json")
 </div>
 
 <footer>© 2026 Asaba Jumah</footer>
+<!-- PROTECTION SCRIPT -->
+<div id="protectedMsg">⚠️    ALERT: content is protected 🔒</div>
 
+<script>
+function showProtected() {
+  let msg = document.getElementById("protectedMsg");
+  msg.style.display = "block";
+
+  setTimeout(() => {
+    msg.style.display = "none";
+  }, 1500);
+}
+
+document.addEventListener("copy", function(e) {
+  e.preventDefault();
+  showProtected();
+});
+
+document.addEventListener("contextmenu", function(e) {
+  e.preventDefault();
+  showProtected();
+});
+</script>
+
+ 
 </body>
 </html>
