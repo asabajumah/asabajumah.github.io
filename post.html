@@ -7,7 +7,6 @@
 <title>Blog Post – Asaba Jumah</title>
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
-<!-- ICONS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
@@ -17,6 +16,11 @@ body {
   font-family:Arial;
   background:#020617;
   color:white;
+
+  /* 🔒 DISABLE SELECT */
+  -webkit-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
 }
 
 /* NAVBAR */
@@ -33,14 +37,8 @@ body {
   z-index:1000;
 }
 
-.navbar a {
-  color:white;
-  text-decoration:none;
-}
-
-.navbar a:hover {
-  color:#38bdf8;
-}
+.navbar a {color:white;text-decoration:none;}
+.navbar a:hover {color:#38bdf8;}
 
 /* CONTAINER */
 .container {
@@ -65,9 +63,7 @@ body {
 }
 
 /* CONTENT */
-.post-content {
-  padding:20px;
-}
+.post-content {padding:20px;}
 
 .post-content h1 {
   color:#38bdf8;
@@ -79,7 +75,7 @@ body {
   line-height:1.7;
 }
 
-/* BACK BUTTON */
+/* BACK */
 .back {
   display:inline-block;
   margin-top:20px;
@@ -87,9 +83,7 @@ body {
   text-decoration:none;
 }
 
-.back:hover {
-  text-decoration:underline;
-}
+.back:hover {text-decoration:underline;}
 
 /* PROFILES */
 .section {
@@ -97,21 +91,31 @@ body {
   text-align:center;
 }
 
-.section h2 {
-  color:white;
-}
-
 .social-icons a {
   display:inline-block;
   margin:10px;
   font-size:24px;
   color:#38bdf8;
-  transition:0.3s;
 }
 
 .social-icons a:hover {
   color:white;
   transform:scale(1.2);
+}
+
+/* 🔒 POPUP */
+#protectedMsg {
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  background:red;
+  color:white;
+  padding:10px 18px;
+  border-radius:8px;
+  font-weight:bold;
+  display:none;
+  z-index:9999;
 }
 </style>
 </head>
@@ -125,7 +129,7 @@ body {
 <a href="about.html">About</a>
 </div>
 
-<!-- POST CONTENT -->
+<!-- POST -->
 <div class="container" id="post"></div>
 
 <script>
@@ -143,7 +147,6 @@ fetch("blog-data.json")
     return;
   }
 
-  // Render post
   document.getElementById("post").innerHTML = `
     <div class="post-card">
 
@@ -157,7 +160,6 @@ fetch("blog-data.json")
       </div>
     </div>
 
-    <!-- PROFILES -->
     <div class="section">
       <h2>Official Profiles</h2>
 
@@ -173,7 +175,7 @@ fetch("blog-data.json")
     </div>
   `;
 
-  // BLOG SCHEMA (GOOGLE RICH RESULTS)
+  // BLOG SCHEMA
   let schema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -198,9 +200,27 @@ fetch("blog-data.json")
   let script = document.createElement("script");
   script.type = "application/ld+json";
   script.text = JSON.stringify(schema);
-
   document.head.appendChild(script);
+});
+</script>
 
+<!-- 🔒 MESSAGE -->
+<div id="protectedMsg">Protected 🔒</div>
+
+<script>
+function showProtected(){
+  let msg=document.getElementById("protectedMsg");
+  msg.style.display="block";
+  setTimeout(()=>{msg.style.display="none";},1500);
+}
+
+document.addEventListener("copy",e=>{e.preventDefault();showProtected();});
+document.addEventListener("contextmenu",e=>{e.preventDefault();showProtected();});
+document.addEventListener("keydown",e=>{
+  if(e.ctrlKey&&(e.key==="c"||e.key==="u"||e.key==="s")){
+    e.preventDefault();
+    showProtected();
+  }
 });
 </script>
 
