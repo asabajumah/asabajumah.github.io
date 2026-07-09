@@ -1,192 +1,391 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Asaba Jumah – Official Website</title>
+<title>Asaba Jumah – Official Website | Actor, Musician & Author</title>
+
+<meta name="description" content="Official website of Asaba Jumah, Ugandan actor, musician and author. Explore films, music, biography and books.">
+
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
-<!-- SEO SCHEMA (UPDATED: WEBSITE + ALL BOOKS) -->
+
+<!-- GOOGLE KNOWLEDGE GRAPH ENTITY SCHEMA -->
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@graph": [
+"@context":"https://schema.org",
+"@graph":[
 
-    {
-      "@type": "WebSite",
-      "name": "Asaba Jumah",
-      "url": "https://asabajumah.top"
-    },
+{
+"@type":"WebSite",
+"@id":"https://asabajumah.top/#website",
+"name":"Asaba Jumah Official Website",
+"url":"https://asabajumah.top",
+"publisher":{
+"@id":"https://asabajumah.top/#person"
+}
+},
 
-    {
-      "@type": "Person",
-      "name": "Asaba Jumah",
-      "url": "https://asabajumah.top"
-    },
+{
+"@type":"Person",
+"@id":"https://asabajumah.top/#person",
+"name":"Asaba Jumah",
+"url":"https://asabajumah.top",
+"image":"https://asabajumah.top/asabajumah.jpg",
 
-    {
-      "@type": "Book",
-      "name": "The Last Night of Nambale",
-      "author": { "@type": "Person", "name": "Asaba Jumah" },
-      "url": "https://www.asabajumah.top/books/the-last-light-of-nambale.html"
-    },
+"description":"Asaba Jumah is a Ugandan actor, musician and author known for film projects, music releases and multiple books.",
 
-    {
-      "@type": "Book",
-      "name": "The Smiling Man in Room 13",
-      "author": { "@type": "Person", "name": "Asaba Jumah" },
-      "url": "https://www.asabajumah.top/books/the-smiling-man-in-room-13.html"
-    },
+"jobTitle":[
+"Actor",
+"Musician",
+"Author"
+],
 
-    {
-      "@type": "Book",
-      "name": "The Whispers of Kalenga Forest",
-      "author": { "@type": "Person", "name": "Asaba Jumah" },
-      "url": "https://www.asabajumah.top/books/the-whispers-of-kalenga-forest.html"
-    },
+"sameAs":[
+"https://lg.wikipedia.org/wiki/Asaba_Jumah",
+"https://www.imdb.com/name/nm18243050/",
+"https://open.spotify.com/artist/4rneWabSFmcWDEKksDN2mY",
+"https://x.com/asabajumah",
+"https://www.facebook.com/djfelixpro",
+"https://www.instagram.com/djfelixpro",
+"https://www.youtube.com/@asabajumah",
+"https://www.tiktok.com/@asabajumah"
+]
 
-    {
-      "@type": "Book",
-      "name": "I am Asaba Jumah: Into the Life of a Musical Virtuoso and Acting",
-      "author": { "@type": "Person", "name": "Asaba Jumah" },
-      "url": "https://www.asabajumah.top/books/i-am-asaba-jumah.html"
-    },
+},
 
-    {
-      "@type": "Book",
-      "name": "The House Beneath Black Hill",
-      "author": { "@type": "Person", "name": "Asaba Jumah" },
-      "url": "https://www.asabajumah.top/books/the-house-beneath-black-hill.html"
-    }
+{
+"@type":"Book",
+"name":"The Last Night of Nambale",
+"author":{
+"@id":"https://asabajumah.top/#person"
+},
+"url":"https://asabajumah.top/books/the-last-light-of-nambale.html"
+},
 
-  ]
+{
+"@type":"Book",
+"name":"The Smiling Man in Room 13",
+"author":{
+"@id":"https://asabajumah.top/#person"
+},
+"url":"https://asabajumah.top/books/the-smiling-man-in-room-13.html"
+},
+
+{
+"@type":"Book",
+"name":"The Whispers of Kalenga Forest",
+"author":{
+"@id":"https://asabajumah.top/#person"
+},
+"url":"https://asabajumah.top/books/the-whispers-of-kalenga-forest.html"
+},
+
+{
+"@type":"Book",
+"name":"I Am Asaba Jumah: Into the Life of a Musical Virtuoso and Acting",
+"author":{
+"@id":"https://asabajumah.top/#person"
+},
+"url":"https://asabajumah.top/books/i-am-asaba-jumah.html"
+},
+
+{
+"@type":"Book",
+"name":"The House Beneath Black Hill",
+"author":{
+"@id":"https://asabajumah.top/#person"
+},
+"url":"https://asabajumah.top/books/the-house-beneath-black-hill.html"
+}
+
+]
 }
 </script>
 
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+
 <style>
+
 body {
-  margin:0;
-  padding-top:60px;
-  font-family:Arial;
-  background:#020617;
-  color:white;
-  user-select:none;
+margin:0;
+padding-top:60px;
+font-family:Arial,sans-serif;
+background:#020617;
+color:white;
+user-select:none;
 }
 
-/* NAVBAR */
+
 .navbar {
-  position:fixed;
-  top:0;
-  width:100%;
-  display:flex;
-  justify-content:center;
-  gap:25px;
-  padding:15px;
-  background:#020617;
-  border-bottom:1px solid #1e293b;
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:center;
+gap:25px;
+padding:15px;
+background:#020617;
+border-bottom:1px solid #1e293b;
+z-index:1000;
 }
-.navbar a { color:white; text-decoration:none; }
-.navbar a:hover { color:#38bdf8; }
 
-/* HERO */
+
+.navbar a {
+color:white;
+text-decoration:none;
+}
+
+
+.navbar a:hover {
+color:#38bdf8;
+}
+
+
 .hero {
-  text-align:center;
-  padding:80px 20px;
-  background:linear-gradient(to bottom,#020617,#0f172a);
-}
-.hero img {
-  width:160px;
-  border-radius:50%;
-  border:3px solid #38bdf8;
+text-align:center;
+padding:80px 20px;
+background:linear-gradient(to bottom,#020617,#0f172a);
 }
 
-/* SECTIONS */
-.container { max-width:1000px; margin:auto; padding:20px; }
-.section { margin-bottom:40px; }
-.section h2 { border-bottom:2px solid #38bdf8; padding-bottom:10px; }
+
+.hero img {
+width:160px;
+height:160px;
+object-fit:cover;
+border-radius:50%;
+border:3px solid #38bdf8;
+}
+
+
+.hero h1 {
+font-size:40px;
+}
+
+
+.container {
+max-width:1000px;
+margin:auto;
+padding:20px;
+}
+
+
+.section {
+margin-bottom:40px;
+}
+
+
+.section h2 {
+border-bottom:2px solid #38bdf8;
+padding-bottom:10px;
+}
+
 
 button.read-more {
-  background:#38bdf8;
-  color:#020617;
-  padding:10px 15px;
-  border:none;
-  border-radius:5px;
-  font-weight:bold;
+background:#38bdf8;
+color:#020617;
+padding:10px 15px;
+border:none;
+border-radius:5px;
+font-weight:bold;
+cursor:pointer;
 }
 
-/* GALLERY */
-.viewport { overflow:hidden; }
-.feed { display:flex; animation:scrollLeft 25s linear infinite; }
-@keyframes scrollLeft { 0%{transform:translateX(0);} 100%{transform:translateX(-50%);} }
-.post { min-width:320px; margin:0 10px; background:#111; border-radius:12px; }
 
-/* SOCIAL */
-.social-icons a { font-size:26px; margin:10px; color:#38bdf8; }
+.viewport {
+overflow:hidden;
+}
 
-/* FOOTER */
-footer { text-align:center; padding:20px; color:#94a3b8; }
+
+.feed {
+display:flex;
+animation:scrollLeft 25s linear infinite;
+}
+
+
+@keyframes scrollLeft {
+0%{transform:translateX(0);}
+100%{transform:translateX(-50%);}
+}
+
+
+.post {
+min-width:320px;
+margin:0 10px;
+background:#111827;
+border-radius:12px;
+overflow:hidden;
+}
+
+
+.post img {
+width:100%;
+display:block;
+}
+
+
+.social-icons a {
+font-size:26px;
+margin:10px;
+color:#38bdf8;
+}
+
+
+footer {
+text-align:center;
+padding:20px;
+color:#94a3b8;
+}
+
 </style>
-</head>
 
+</head>
 <body>
 
+
 <div class="navbar">
+
 <a href="index.html">Home</a>
+
 <a href="films.html">Films</a>
+
 <a href="https://stream.asabajumah.top">Stream</a>
+
 <a href="books.html">Books</a>
+
 </div>
 
+
+
 <div class="hero">
-<img src="asabajumah.jpg">
+
+<img src="asabajumah.jpg" alt="Asaba Jumah">
+
 <h1>Asaba Jumah</h1>
+
 <p>Actor • Musician • Author</p>
+
 </div>
+
+
 
 <div class="container">
 
+
 <div class="section">
+
 <h2>Biography</h2>
+
 <p>
 Asaba Jumah is a Ugandan actor, musician, and author of multiple books including:
 The Last Night of Nambale, The Smiling Man in Room 13,
-The Whispers of Kalenga Forest, I am Asaba Jumah, and The House Beneath Black Hill.
+The Whispers of Kalenga Forest, I Am Asaba Jumah, and The House Beneath Black Hill.
 </p>
+
 
 <button class="read-more" onclick="window.location.href='about.html'">
 Read Full Biography
 </button>
+
+
 </div>
 
+
+
+
 <div class="section">
+
 <h2>Gallery</h2>
+
+
 <div class="viewport">
+
 <div class="feed">
-<div class="post"><img src="Asaba Jumah.jpg"></div>
-<div class="post"><img src="Asaba Jumah-Actor.jpg"></div>
-<div class="post"><img src="Asaba Jumah.png"></div>
-<div class="post"><img src="asabajumah.jpg"></div>
+
+
+<div class="post">
+<img src="Asaba Jumah.jpg" alt="Asaba Jumah">
 </div>
+
+
+<div class="post">
+<img src="Asaba Jumah-Actor.jpg" alt="Asaba Jumah Actor">
 </div>
+
+
+<div class="post">
+<img src="Asaba Jumah.png" alt="Asaba Jumah">
 </div>
+
+
+<div class="post">
+<img src="asabajumah.jpg" alt="Asaba Jumah">
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
 
 <div class="section">
+
 <h2>Official Profiles</h2>
+
+
 <div class="social-icons">
-<a href="https://www.facebook.com/djfelixpro"><i class="fab fa-facebook"></i></a>
-<a href="https://x.com/asabajumah"><i class="fab fa-x-twitter"></i></a>
-<a href="https://www.instagram.com/djfelixpro"><i class="fab fa-instagram"></i></a>
-<a href="https://www.tiktok.com/@asabajumah"><i class="fab fa-tiktok"></i></a>
-<a href="https://www.youtube.com/@asabajumah"><i class="fab fa-youtube"></i></a>
-</div>
-</div>
+
+
+<a href="https://www.facebook.com/djfelixpro" aria-label="Facebook">
+<i class="fab fa-facebook"></i>
+</a>
+
+
+<a href="https://x.com/asabajumah" aria-label="X">
+<i class="fab fa-x-twitter"></i>
+</a>
+
+
+<a href="https://www.instagram.com/djfelixpro" aria-label="Instagram">
+<i class="fab fa-instagram"></i>
+</a>
+
+
+<a href="https://www.tiktok.com/@asabajumah" aria-label="TikTok">
+<i class="fab fa-tiktok"></i>
+</a>
+
+
+<a href="https://www.youtube.com/@asabajumah" aria-label="YouTube">
+<i class="fab fa-youtube"></i>
+</a>
+
 
 </div>
 
-<footer>© 2026 Asaba Jumah</footer>
+</div>
+
+
+</div>
+
+
+
+<footer>
+
+© 2026 Asaba Jumah — Official Website
+
+</footer>
+
 
 </body>
+
 </html>
